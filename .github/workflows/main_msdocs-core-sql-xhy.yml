@@ -14,13 +14,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+       # Checkout your code into the runner
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '7.x'
           include-prerelease: true
+
+          # List the files where the project should be to help with debugging
+      - name: List files in directory
+        run: ls -l DotNetCoreSqlDb/DotNetCoreSqlDb/
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
