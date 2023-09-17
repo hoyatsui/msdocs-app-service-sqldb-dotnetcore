@@ -18,6 +18,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: List root directory
+        run: ls -l
+
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v1
         with:
